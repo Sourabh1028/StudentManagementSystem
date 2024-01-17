@@ -1,10 +1,12 @@
 package com.geekster.ecommerceApp.modle;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
-import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -15,12 +17,18 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long StudentId;
-    private String StudentName;
-    private Integer StudentAge;
-    @Enumerated(value = EnumType.STRING)
-    private Gender StudentGender;
+    public Integer Id;
 
-    private LocalDate studentDOB;
+    @NotBlank
+    public String firstName;
+
+    @NotBlank
+    public String lastName;
+
+    @Email
+    public String email;
+
+    @NonNull
+    public Integer rollNo;
 
 }
